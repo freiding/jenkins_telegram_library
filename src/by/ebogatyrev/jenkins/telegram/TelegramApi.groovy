@@ -16,7 +16,7 @@ class TelegramApi {
     }
 
     def sendFile(String chatId, String filePath) {
-        def cmd =  "curl -v -F chat_id=$chatId -F document=@$filePath https://api.telegram.org/bot$botToken/sendDocument"
+        def cmd =  "curl --location 'https://api.telegram.org/bot$botToken/sendDocument' --form 'chat_id=\"$chatId\"' --form 'document=@\"$filePath\"'"
         cmd.execute()
     }
 }
